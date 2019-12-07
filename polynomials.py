@@ -1,27 +1,26 @@
 """
-2. Polynomials
+Polynomials 
 
-Suppose we have a polynomial a represented as a list of coefficients, 
-a[0], a[1], ..., a[n-1],
-where a[i] is the coefficient of xi; that is:
+Suppose we have a polynomial represented as a list of coefficients, 
+a[0], a[1], ..., a[n-1], where a[i] is the coefficient of x**i; 
+that is: 
+    f(x)=a_0x^0 + a_1x^1 + (...) + a_nx^n
 
-f(x) = a0x^0 + a1x^1 + ... + anx^n
+Write a function evaluate(a, x) that evaluates the value of the polynomial 
+for a given integer x.
 
-Write a function evaluate(a, x) that evaluates the value 
-of the polynomial for a given integer x.
+Use map() and lambda functions.
 
-For example:
-● evaluate([1, 2, 4], 5) returns the integer 111
-● evaluate([1, 2, 4], 10) returns the integer 421
-● evaluate([1, 2, 4, 6, 8], 2) returns the integer 197
+Example:
+    Input: [1, 2, 4], 5	
+    Output: 111
 
-@author: Luísa Maria
+@author: Luísa Maria Mesquita
 """
+
 def evaluate(a, x):
-    sum_ = 0
+    x_list = [x**i for i in range(0, len(a))]        
+
+    result = list(map(lambda xn,an: xn*an ,x_list,a))
     
-    for i in range(0, len(a)):
-        sum_ = sum_ + (a[i] * (x ** i))
-        
-    return sum_
-    
+    return sum(result)
